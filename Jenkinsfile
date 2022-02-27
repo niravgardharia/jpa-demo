@@ -3,25 +3,25 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        sh 'sh \'mvn compile\''
+        sh 'mvn compile'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'sh \'mvn test\''
+        sh 'mvn test'
       }
     }
 
     stage('Package') {
       steps {
-        sh 'sh \'mvn package\''
+        sh 'mvn package'
       }
     }
 
     stage('Archive Artifact') {
       steps {
-        archiveArtifacts(artifacts: 'target/*.jar', allowEmptyArchive: true)
+        archiveArtifacts 'target/*.jar'
       }
     }
 
